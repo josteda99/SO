@@ -1,4 +1,4 @@
-#include <linux/sched.h>
+#include <linux/sched.h> // task struct
 #include <linux/init.h>
 #include <linux/kernel.h>
 #include <linux/module.h>
