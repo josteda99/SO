@@ -106,7 +106,7 @@ int lsh_launch(char **args)
          {                                                     // no estan concurrentes pid
                                                                //padre e hijo
             wpid = waitpid(pid, &status, WUNTRACED);           // detiene el proceso padre
-         } while (!WIFEXITED(status) && !WIFSIGNALED(status)); // hasta que el hijo termine y el status cambie, las funciones indican que el proceso termino alv
+         } while (!WIFEXITED(status) && !WIFSIGNALED(status)); // hasta que el hijo termine y el status cambie, las funciones indican que el proceso termino
       }
    }
    else
@@ -132,7 +132,7 @@ char **lsh_split_line(char *line)
       exit(EXIT_FAILURE);
    }
 
-   token = strtok(line, LSH_TOK_DELIM); // split de java alv
+   token = strtok(line, LSH_TOK_DELIM); // split de java 
    while (token != NULL)
    {
       tokens[position] = token;
@@ -292,7 +292,7 @@ int lsh_execute(char *line)
    if (cur_pos > 0)
       printf("Inserted %s\n", history[cur_pos - 1]);
 
-   for (i = 0; i < lsh_num_builtins(); i++)
+   for (i = 0; i < lsh_num_builtins(); i++)// revisa si el codigo que ingreso es alguno que esta almacenado en el sshell
    {
       if (strcmp(args[0], builtin_str[i]) == 0)
       {
@@ -368,3 +368,5 @@ int main(void)
 
    return EXIT_SUCCESS;
 }
+
+//para ./shell enter

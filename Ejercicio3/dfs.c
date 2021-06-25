@@ -3,7 +3,7 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 
-//DFS over tree
+//DFS over tree - depth-first search
 void dfs(struct task_struct *task) {
 	struct task_struct *child; //Pointer to the next child
 	struct list_head *list; //Children
@@ -11,11 +11,12 @@ void dfs(struct task_struct *task) {
 	//task->comm is the task' name
 	//task->state is the task's state (-1 unrunnable, 0 runnable, >0 stopped)
 	//task->pid is the task's process ID
-   //nodo padre
+   //nodo padre empeiza por el inittask 
 	printk(KERN_INFO "Name: %-20s State: %ld\tProcess ID: %d\n", task->comm, task->state, task->pid);
 	
 	list_for_each(list, &task->children) { //Loop over children
-		child = list_entry(list, struct task_struct, sibling); //Get child
+         //params = pointer head list and pointer head node list
+		child = list_entry(list, struct task_struct, sibling); //Get child tambien es Macro
 		/* child points to the next child in the list */
 		dfs(child); //DFS from child
 	}

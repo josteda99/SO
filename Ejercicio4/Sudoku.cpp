@@ -207,3 +207,5 @@ int sudoku_checker(int sudoku[9][9]) {
     }
     return 0;
 }
+
+//g++ Sudoku.cpp -pthread -o ./c.out 

@@ -11,6 +11,9 @@ int entryPoint(void) {
 	
 	printk(KERN_INFO "Started listing tasks\n");
 
+
+   // t1 | esta aqui -> t2 | t2
+   //macro
 	for_each_process(task) { //Loop over the tasks using the macro for_each_process
 
 		/* on each iteration task points to the next task */
